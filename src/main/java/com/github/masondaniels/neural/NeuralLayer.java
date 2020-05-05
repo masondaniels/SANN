@@ -6,7 +6,7 @@ public class NeuralLayer {
 
 	private static Random random = new Random();
 
-	private double bias = 1;
+	private double bias = random.nextBoolean() ? random.nextDouble() : -(random.nextDouble());
 	private Neuron[] neurons;
 
 	private double[] storedCalculation;
@@ -36,7 +36,7 @@ public class NeuralLayer {
 	public Neuron getNeuron(int index) {
 		return neurons[index];
 	}
-	
+
 	public double[] getStoredCalculation() {
 		return storedCalculation;
 	}
@@ -48,7 +48,7 @@ public class NeuralLayer {
 	public double getBias() {
 		return bias;
 	}
-	
+
 	public void setBias(double bias) {
 		this.bias = bias;
 	}
