@@ -12,6 +12,13 @@ public class NeuralNetworkBuilder {
 		return this;
 	}
 
+	public NeuralNetworkBuilder addLayers(int... sizes) {
+		for (int i = 0; i < sizes.length; i++) {
+			addLayer(sizes[i]);
+		}
+		return this;
+	}
+
 	public NeuralNetworkBuilder setActivation(ActivationType activationType) {
 		this.activationType = activationType;
 		return this;
