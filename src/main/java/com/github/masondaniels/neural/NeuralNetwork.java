@@ -26,14 +26,12 @@ public class NeuralNetwork {
 
 	public double[] calculate(double... input) {
 		System.out.println("INPUTS: " + Arrays.toString(input) + "\n");
-
 		setInput(input);
 		for (int i = 1; i < layers.length - 1; i++) {
 			NeuralLayer layer = layers[i];
-			layer.setStoredCalculation(activation(mult(layers[i - 1].getStoredCalculation(), layer)));
+			layer.setStoredCalculation(activationType.activate(mult(layers[i - 1].getStoredCalculation(), layer)));
 		}
-		return activation(mult(layers[layers.length - 2].getStoredCalculation(), layers[layers.length - 1]));
-
+		return activationType.activate(mult(layers[layers.length - 2].getStoredCalculation(), layers[layers.length - 1]));
 	}
 
 	private double[] mult(double[] storedCalculation, NeuralLayer layer) {
@@ -47,18 +45,7 @@ public class NeuralNetwork {
 		return returnable;
 	}
 
-	private double[] activation(double[] storedCalculation) {
-		double[] returnable = storedCalculation;
 
-		if (activationType == ActivationType.SIGMOID) {
-			for (int i = 0; i < returnable.length; i++) {
-				returnable[i] = 1d / (1 + Math.pow(Math.E, returnable[i] * -1)); // What works better? Math.exp or pow? Does it matter? I dunno.
-			}
-			System.out.println("\t-> " + Arrays.toString(returnable));
-			return returnable;
-		}
-		return null;
-	}
 
 	private void setInput(double[] input) {
 		if (input.length != layers[0].getSize())

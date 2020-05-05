@@ -16,6 +16,4 @@ public class Neuron {
 		this.weight = weight;
 	}
 
-
-
 }
