@@ -7,4 +7,4 @@ The main class serves as an example of its usage. Create a NeuralNetwork by crea
 
 ###### Visual
 
-![Visual](https://i.imgur.com/uuYdlyd.png)
+![Visual](https://i.imgur.com/k14pZcg.png)
