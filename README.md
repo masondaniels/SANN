@@ -31,4 +31,4 @@ While you can create a NeuralNetwork with an array of NeuralLayers and an Activa
 
 ###### Visual Example
 
-![Visual](https://i.imgur.com/k14pZcg.png)
+![Visual](https://i.imgur.com/4sxVEOP.png)
