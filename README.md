@@ -1,10 +1,34 @@
 # SANN
 Simple Artificial Neural Network
-## Status
-SANN is a project which will probably collect dust. Though, my hope for SANN is that I actually work on it. Currently, SANN is non-functional for training (so basically useless). Maybe if I get bored enough one day, I'll add backpropagation. It can calculate given weights, biases, and inputs. It supports only the sigmoid activation function as of now. 
-## Usage
-The main class serves as an example of its usage. Create a NeuralNetwork by creating a new NeuralNetworkBuilder, then add layers to this builder, then set its activation type, then build. You can then calculate stuff. Too bad you can't train anything yet. Then maybe this would be kinda useful.
 
-###### Visual
+---
+
+## Status
+As of now, SANN can not train since it has no backpropagation/training algorithm implemented yet. Though, this will likely change in the coming days. Some activation functions (ActivationType) are supported currently. Networks support a layer size of 2 to infinite. Each layer can have a size of 1 to infinite.
+
+There are a few system prints for debugging. This project is in its early-development.
+
+---
+
+## Usage
+While you can create a NeuralNetwork with an array of NeuralLayers and an ActivationType, this isn't recommended. Use the NeuralNetworkBuilder. Examples below.
+
+###### Example 1
+
+```java
+		NeuralNetwork network = new NeuralNetworkBuilder().addLayers(4, 3, 2, 3, 4)
+				.setActivation(ActivationType.IDENTITY).build();
+		System.out.println(Arrays.toString(network.calculate(6, 3, 1, 9)));
+```
+
+###### Example 2
+
+```java
+		NeuralNetwork network = new NeuralNetworkBuilder().addLayers(1, 2, 3, 2)
+				.setActivation(ActivationType.IDENTITY).build();
+		System.out.println(Arrays.toString(network.calculate(1)));
+```
+
+###### Visual Example
 
 ![Visual](https://i.imgur.com/k14pZcg.png)
