@@ -12,9 +12,9 @@ While you can create a NeuralNetwork with an array of NeuralLayers and an Activa
 ###### Example 1
 
 ```java
-		NeuralNetwork network = new NeuralNetworkBuilder().addLayers(4, 3, 2, 3, 4)
-				.setActivation(ActivationType.IDENTITY).build();
-		System.out.println(Arrays.toString(network.calculate(6, 3, 1, 9)));
+		NeuralNetwork network = new NeuralNetworkBuilder().addLayers(3, 4, 5, 4, 3, 2)
+				.setActivation(ActivationType.SIGMOID).build();
+		System.out.println(Arrays.toString(network.calculate(10, -3, 0)));
 ```
 
 ###### Example 2
