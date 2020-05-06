@@ -31,21 +31,20 @@ public class NeuralNetwork {
 			NeuralLayer layer = layers[i];
 			layer.setStoredCalculation(activationType.activate(mult(layers[i - 1].getStoredCalculation(), layer)));
 		}
-		return activationType.activate(mult(layers[layers.length - 2].getStoredCalculation(), layers[layers.length - 1]));
+		return activationType
+				.activate(mult(layers[layers.length - 2].getStoredCalculation(), layers[layers.length - 1]));
 	}
 
 	private double[] mult(double[] storedCalculation, NeuralLayer layer) {
 		double[] returnable = new double[layer.getSize()];
 		for (int i = 0; i < returnable.length; i++) {
 			for (int j = 0; j < storedCalculation.length; j++) {
-				returnable[i] += storedCalculation[j] * layer.getNeuron(i).getWeight() + layer.getBias();
+				returnable[i] += storedCalculation[j] * layer.getNeuron(i) + layer.getBias();
 			}
 		}
 		System.out.println(Arrays.toString(returnable));
 		return returnable;
 	}
-
-
 
 	private void setInput(double[] input) {
 		if (input.length != layers[0].getSize())

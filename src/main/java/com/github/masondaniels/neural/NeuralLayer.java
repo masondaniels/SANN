@@ -5,9 +5,8 @@ import java.util.Random;
 public class NeuralLayer {
 
 	private static Random random = new Random();
-
 	private double bias = random.nextBoolean() ? random.nextDouble() : -(random.nextDouble());
-	private Neuron[] neurons;
+	private double[] neuronWeights;
 
 	private double[] storedCalculation;
 
@@ -16,25 +15,25 @@ public class NeuralLayer {
 	}
 
 	public int getSize() {
-		return neurons.length;
+		return neuronWeights.length;
 	}
 
 	public void setSize(int size) {
-		this.neurons = new Neuron[size];
+		this.neuronWeights = new double[size];
 	}
 
 	public void initializeNeurons() {
-		for (int i = 0; i < neurons.length; i++) {
-			neurons[i] = new Neuron(random.nextDouble());
+		for (int i = 0; i < neuronWeights.length; i++) {
+			neuronWeights[i] = random.nextDouble();
 		}
 	}
 
-	public void setNeuron(int index, Neuron neuron) {
-		neurons[index] = neuron;
+	public void setNeuron(int index, double weight) {
+		neuronWeights[index] = weight;
 	}
 
-	public Neuron getNeuron(int index) {
-		return neurons[index];
+	public double getNeuron(int index) {
+		return neuronWeights[index];
 	}
 
 	public double[] getStoredCalculation() {
