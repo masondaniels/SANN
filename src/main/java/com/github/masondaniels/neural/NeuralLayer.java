@@ -4,7 +4,7 @@ import java.util.Random;
 
 public class NeuralLayer {
 
-	private static Random random = new Random(1);
+	private static Random random = new Random();
 	private double bias = random.nextBoolean() ? random.nextDouble() : -(random.nextDouble());
 	private double[] neuronWeights;
 	private double[] neuronErrorSig;
