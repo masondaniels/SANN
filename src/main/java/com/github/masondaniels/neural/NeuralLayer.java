@@ -4,9 +4,10 @@ import java.util.Random;
 
 public class NeuralLayer {
 
-	private static Random random = new Random();
+	private static Random random = new Random(1);
 	private double bias = random.nextBoolean() ? random.nextDouble() : -(random.nextDouble());
 	private double[] neuronWeights;
+	private double[] neuronErrorSig;
 
 	private double[] storedCalculation;
 
@@ -20,6 +21,7 @@ public class NeuralLayer {
 
 	public void setSize(int size) {
 		this.neuronWeights = new double[size];
+		this.neuronErrorSig = new double[size];
 	}
 
 	public void initializeNeurons() {
@@ -32,7 +34,7 @@ public class NeuralLayer {
 		neuronWeights[index] = weight;
 	}
 
-	public double getNeuron(int index) {
+	public double getNeuronWeight(int index) {
 		return neuronWeights[index];
 	}
 
@@ -50,6 +52,14 @@ public class NeuralLayer {
 
 	public void setBias(double bias) {
 		this.bias = bias;
+	}
+
+	public double getNeuronErrorSig(int index) {
+		return neuronErrorSig[index];
+	}
+
+	public void setNeuronErrorSig(int index, double neuronErrorSig) {
+		this.neuronErrorSig[index] = neuronErrorSig;
 	}
 
 }
